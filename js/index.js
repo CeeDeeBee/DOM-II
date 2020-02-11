@@ -42,10 +42,26 @@ window.addEventListener('resize', () => body.style.backgroundColor = 'red');
 
 // Scroll
 const header = document.getElementsByTagName('header')[0];
-document.addEventListener('scroll', () => header.style.display = 'none');
+// document.addEventListener('scroll', () => header.style.display = 'none');
 
 // Load
 window.addEventListener('load', () => alert('The window has loaded!'));
 
 // online
 window.addEventListener('offline', () => alert('You have lost connection!'));
+
+// Event propagation
+const introSection = document.getElementsByClassName('intro')[0];
+introSection.addEventListener('click', e => e.target.style.border = '1px solid red');
+
+const introImg = introSection.getElementsByTagName('img')[0];
+introImg.addEventListener('click', (e) => {
+    introImg.style.border = '5px dotted blue';
+    e.stopPropagation();
+});
+
+// Prevent nav default
+const navLinks = document.querySelectorAll('nav > a');
+navLinks.forEach(link => {
+    link.addEventListener('click', e => e.preventDefault());
+})
