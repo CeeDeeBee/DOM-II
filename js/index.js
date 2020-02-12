@@ -64,4 +64,4 @@ introImg.addEventListener('click', (e) => {
 const navLinks = document.querySelectorAll('nav > a');
 navLinks.forEach(link => {
     link.addEventListener('click', e => e.preventDefault());
-})
+});
